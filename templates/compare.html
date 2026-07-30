@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>College Comparison</title>
+</head>
+<body>
+
+<h1>⚖ Compare Colleges</h1>
+
+<form method="POST">
+
+<label>College 1:</label>
+<select name="college1">
+{% for name in colleges.keys() %}
+<option value="{{ name }}">{{ name.title() }}</option>
+{% endfor %}
+</select>
+
+<br><br>
+
+<label>College 2:</label>
+<select name="college2">
+{% for name in colleges.keys() %}
+<option value="{{ name }}">{{ name.title() }}</option>
+{% endfor %}
+</select>
+
+<br><br>
+
+<button type="submit">Compare</button>
+
+</form>
+
+{% if college1 and college2 %}
+
+<hr>
+
+<h2>Comparison Result</h2>
+
+<table border="1" cellpadding="8">
+<tr>
+<th>Feature</th>
+<th>{{ college1["Short Name"] }}</th>
+<th>{{ college2["Short Name"] }}</th>
+</tr>
+
+<tr>
+<td>Location</td>
+<td>{{ college1["Location"] }}</td>
+<td>{{ college2["Location"] }}</td>
+</tr>
+
+<tr>
+<td>Established</td>
+<td>{{ college1["Established"] }}</td>
+<td>{{ college2["Established"] }}</td>
+</tr>
+
+<tr>
+<td>Fees</td>
+<td>{{ college1["Fees"] }}</td>
+<td>{{ college2["Fees"] }}</td>
+</tr>
+
+<tr>
+<td>Placement</td>
+<td>{{ college1["Placement"] }}</td>
+<td>{{ college2["Placement"] }}</td>
+</tr>
+
+<tr>
+<td>Average Package</td>
+<td>{{ college1["Average Package"] }}</td>
+<td>{{ college2["Average Package"] }}</td>
+</tr>
+
+</table>
+
+{% endif %}
+
+<br><br>
+
+<a href="/">⬅ Back to Home</a>
+
+</body>
+</html>
